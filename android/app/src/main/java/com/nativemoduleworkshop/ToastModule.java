@@ -19,7 +19,7 @@ public class ToastModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void show(String message, double duration) {
+  public void show(String message, int duration) {
     ReactApplicationContext context = getReactApplicationContext();
     Toast toast = Toast.makeText(context, message, duration);
     toast.show();
@@ -32,5 +32,4 @@ public class ToastModule extends ReactContextBaseJavaModule {
     constants.put("LONG", Toast.LENGTH_LONG);
     return constants;
   }
-
 }
