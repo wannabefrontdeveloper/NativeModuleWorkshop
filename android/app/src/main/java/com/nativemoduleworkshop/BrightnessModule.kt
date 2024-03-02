@@ -1,5 +1,6 @@
 package com.nativemoduleworkshop
 
+import com.facebook.react.bridge.Promise
 import com.facebook.react.bridge.ReactApplicationContext
 import com.facebook.react.bridge.ReactContextBaseJavaModule
 import com.facebook.react.bridge.ReactMethod
@@ -16,12 +17,19 @@ ReactContextBaseJavaModule(reactContext) {
     }
 
     @ReactMethod
-    fun getBrightness() {
-        // TODO: get Brightness
+    fun getBrightness(promise: Promise) {
+        val activity = currentActivity!!
+        val lp = activity.window.attributes
+        promise.resolve(lp.screenBrightness)
     }
 
     @ReactMethod
     fun setBrightness(brightness: Float) {
-        // TODO: set brightness
+        val activity = currentActivity!!
+        activity.runOnUiThread {
+          val lp =activity.window.attributes
+          lp.screenBrightness = brightness
+          activity.window.attributes=lp
+        }
     }
 }
