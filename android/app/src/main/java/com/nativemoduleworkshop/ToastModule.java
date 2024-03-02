@@ -14,4 +14,9 @@ public class ToastModule extends ReactContextBaseJavaModule {
     return "ToastModule";
   }
 
+  @ReactMethod
+  public void show(String message, double duration) {
+
+  }
+
 }
