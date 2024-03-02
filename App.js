@@ -4,7 +4,7 @@ import ToastModule from './Toast';
 
 function App() {
   const onPress = () => {
-    ToastModule.show('Heelo World', ToastModule.SHORT);
+    ToastModule.show('Hello World', ToastModule.SHORT);
   };
 
   return (
